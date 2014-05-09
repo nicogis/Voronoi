@@ -1,0 +1,8 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>arcobjects</Value>
+      <Value>voronoi</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings>
