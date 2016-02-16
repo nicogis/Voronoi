@@ -1,4 +1,10 @@
-namespace EngineConsoleTest
+//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Studio A&T s.r.l.">
+//     Copyright (c) Studio A&T s.r.l. All rights reserved.
+// </copyright>
+// <author>Nicogis</author>
+//-----------------------------------------------------------------------
+namespace Studioat.ArcGIS.Voronoi
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +21,7 @@ namespace EngineConsoleTest
         /// <summary>
         /// arcobjects License Initializer
         /// </summary>
-        private static LicenseInitializer arcobjectsLicenseInitializer = new EngineConsoleTest.LicenseInitializer();
+        private static LicenseInitializer arcobjectsLicenseInitializer = new LicenseInitializer();
         
         /// <summary>
         /// main method
@@ -25,7 +31,7 @@ namespace EngineConsoleTest
         private static void Main(string[] args)
         {
             // ESRI License Initializer generated code.
-            if (!arcobjectsLicenseInitializer.InitializeApplication(new esriLicenseProductCode[] { esriLicenseProductCode.esriLicenseProductCodeEngine }, new esriLicenseExtensionCode[] { }))
+            if (!arcobjectsLicenseInitializer.InitializeApplication(new esriLicenseProductCode[] { esriLicenseProductCode.esriLicenseProductCodeEngine, esriLicenseProductCode.esriLicenseProductCodeBasic, esriLicenseProductCode.esriLicenseProductCodeStandard, esriLicenseProductCode.esriLicenseProductCodeAdvanced }, new esriLicenseExtensionCode[] { }))
             {
                 System.Console.WriteLine(arcobjectsLicenseInitializer.LicenseMessage());
                 System.Console.WriteLine("This application could not initialize with the correct ArcGIS license and will shutdown.");
@@ -52,7 +58,7 @@ namespace EngineConsoleTest
                 }
             }
 
-            IList<IGeometry> thiessenPolygons = Voronoi.Triangulation.GeometryVoronoi(locations);
+            IList<IGeometry> thiessenPolygons = Triangulation.GeometryVoronoi(locations);
                     
             int idxId = featureClassPolygons.FindField("Id");
             int i = 0;
@@ -83,10 +89,8 @@ namespace EngineConsoleTest
         /// <returns>objects workspace</returns>
         private static IWorkspace FileGdbWorkspaceFromPath(string path)
         {
-            Type factoryType = Type.GetTypeFromProgID(
-              "esriDataSourcesGDB.FileGDBWorkspaceFactory");
-            IWorkspaceFactory workspaceFactory = (IWorkspaceFactory)
-              Activator.CreateInstance(factoryType);
+            Type factoryType = Type.GetTypeFromProgID("esriDataSourcesGDB.FileGDBWorkspaceFactory");
+            IWorkspaceFactory workspaceFactory = (IWorkspaceFactory)Activator.CreateInstance(factoryType);
             return workspaceFactory.OpenFromFile(path, 0);
         }
     }

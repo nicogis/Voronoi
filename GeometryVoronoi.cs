@@ -1,4 +1,10 @@
-﻿namespace Voronoi
+﻿//-----------------------------------------------------------------------
+// <copyright file="GeometryVoronoi.cs" company="Studio A&T s.r.l.">
+//     Copyright (c) Studio A&T s.r.l. All rights reserved.
+// </copyright>
+// <author>Nicogis</author>
+//-----------------------------------------------------------------------
+namespace Studioat.ArcGIS.Voronoi
 {
     using System;
     using System.Collections.Generic;

@@ -6,8 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-namespace EngineConsoleTest
+namespace Studioat.ArcGIS.Voronoi
 {
     using System;
     using System.Collections.Generic;
